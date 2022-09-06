@@ -1,11 +1,18 @@
 // backend framework
 const express = require('express')
+// colors object
+const colors = require('colors')
 // environment variables
 const dotenv = require('dotenv').config()
 // custom error handler
 const {errorHandler} = require('./middleware/errorMiddleware')
+// Brings in mongoDB Connection
+const connectDB = require('./config/database')
 // port for server
 const port = process.env.PORT || 5000
+
+// runs db connection
+connectDB()
 
 //initialize express
 const app = express()
