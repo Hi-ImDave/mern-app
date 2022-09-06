@@ -1,28 +1,22 @@
-// backend framework
-const express = require('express')
-// colors object
-const colors = require('colors')
-// environment variables
-const dotenv = require('dotenv').config()
-// custom error handler
-const {errorHandler} = require('./middleware/errorMiddleware')
-// Brings in mongoDB Connection
-const connectDB = require('./config/database')
-// port for server
-const port = process.env.PORT || 5000
+const express = require('express') // backend framework
+const colors = require('colors') // custom console.log colors
+const dotenv = require('dotenv').config() // environment variables
+const {errorHandler} = require('./middleware/errorMiddleware') // custom error handler
+const connectDB = require('./config/database') // Brings in mongoDB Connection
+const port = process.env.PORT || 5000 // port for server
 
-// runs db connection
-connectDB()
+connectDB() // runs db connection
 
-//initialize express
-const app = express()
+const app = express() // initialize express
 
-// middleware
+// MIDDLEWARE
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 
+// ROUTES
 app.use('/api/goals', require('./routes/goalRoutes'))
+app.use('/api/users', require('./routes/userRoutes'))
 
-app.use(errorHandler)
+app.use(errorHandler) // allows use of custom error handler
 
-app.listen(port, () => console.log(`Server started on port ${port}`))
+app.listen(port, () => console.log(`Server started on port ${port}`.bold.green))
