@@ -10,6 +10,7 @@ basic full-stack app used to set goals
 
 add passport along with google oauth. 
 ability to reorganize goals dynamically
+component to edit/delete goals depending on click state
 
 ## Lessons Learned:
 
