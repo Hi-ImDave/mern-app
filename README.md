@@ -1,6 +1,9 @@
 # mern-app
 basic full-stack app used to set goals
 
+Hosted on heroku here: https://mernappdsm.herokuapp.com/login
+(universal IP whitelist active until 9/15/2022 )
+
 ## How It's Made:
 
 **Tech used:** HTML, CSS, JS, React, Redux, MongoDB, Mongoose, Express
